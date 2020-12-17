@@ -417,7 +417,7 @@ function astra_header_builder_migration() {
 	/**
 	 * All theme options.
 	 */
-	$theme_options = get_option( 'astra-settings', array() );
+	$theme_options = Astra_Theme_Options::get_options();
 
 	// WordPress sidebar_widgets option.
 	$widget_options = get_option( 'sidebars_widgets', array() );
@@ -462,6 +462,14 @@ function astra_header_builder_migration() {
  * @return array
  */
 function astra_sticky_header_builder_migration( $theme_options, $used_elements, $widget_options ) {
+
+	if ( defined( 'ASTRA_EXT_VER' ) ) {
+		return array(
+			'theme_options'  => $theme_options,
+			'used_elements'  => $used_elements,
+			'widget_options' => $widget_options,
+		);
+	}
 
 	// Menu.
 	$is_menu_in_primary = false;
@@ -745,36 +753,38 @@ function astra_primary_menu_builder_migration( $theme_options, $used_elements, $
 
 	$theme_options['header-menu1-menu-spacing'] = $theme_options['primary-menu-spacing'];
 	
+	if ( defined( 'ASTRA_EXT_VER' ) ) {
 
-	// Primary Menu - Submenu.
-	$theme_options['header-menu1-submenu-color-responsive']    = $theme_options['primary-submenu-color-responsive'];
-	$theme_options['header-menu1-submenu-bg-color-responsive'] = $theme_options['primary-submenu-bg-color-responsive'];
+		// Primary Menu - Submenu.
+		$theme_options['header-menu1-submenu-color-responsive']    = $theme_options['primary-submenu-color-responsive'];
+		$theme_options['header-menu1-submenu-bg-color-responsive'] = $theme_options['primary-submenu-bg-color-responsive'];
 
-	$theme_options['header-menu1-submenu-h-color-responsive']    = $theme_options['primary-submenu-h-color-responsive'];
-	$theme_options['header-menu1-submenu-h-bg-color-responsive'] = $theme_options['primary-submenu-h-bg-color-responsive'];
+		$theme_options['header-menu1-submenu-h-color-responsive']    = $theme_options['primary-submenu-h-color-responsive'];
+		$theme_options['header-menu1-submenu-h-bg-color-responsive'] = $theme_options['primary-submenu-h-bg-color-responsive'];
 
-	$theme_options['header-menu1-submenu-a-color-responsive']    = $theme_options['primary-submenu-a-color-responsive'];
-	$theme_options['header-menu1-submenu-a-bg-color-responsive'] = $theme_options['primary-submenu-a-bg-color-responsive'];
+		$theme_options['header-menu1-submenu-a-color-responsive']    = $theme_options['primary-submenu-a-color-responsive'];
+		$theme_options['header-menu1-submenu-a-bg-color-responsive'] = $theme_options['primary-submenu-a-bg-color-responsive'];
 
-	$theme_options['header-font-size-menu1-sub-menu']      = $theme_options['font-size-primary-dropdown-menu'];
-	$theme_options['header-font-weight-menu1-sub-menu']    = $theme_options['font-weight-primary-dropdown-menu'];
-	$theme_options['header-line-height-menu1-sub-menu']    = $theme_options['line-height-primary-dropdown-menu'];
-	$theme_options['header-font-family-menu1-sub-menu']    = $theme_options['font-family-primary-dropdown-menu'];
-	$theme_options['header-text-transform-menu1-sub-menu'] = $theme_options['text-transform-primary-dropdown-menu'];
-	
-	$theme_options['header-menu1-submenu-spacing'] = $theme_options['primary-submenu-spacing'];
+		$theme_options['header-font-size-menu1-sub-menu']      = $theme_options['font-size-primary-dropdown-menu'];
+		$theme_options['header-font-weight-menu1-sub-menu']    = $theme_options['font-weight-primary-dropdown-menu'];
+		$theme_options['header-line-height-menu1-sub-menu']    = $theme_options['line-height-primary-dropdown-menu'];
+		$theme_options['header-font-family-menu1-sub-menu']    = $theme_options['font-family-primary-dropdown-menu'];
+		$theme_options['header-text-transform-menu1-sub-menu'] = $theme_options['text-transform-primary-dropdown-menu'];
+		
+		$theme_options['header-menu1-submenu-spacing'] = $theme_options['primary-submenu-spacing'];
 
-	// Primary Menu - Mega Menu.
-	$theme_options['header-menu1-header-megamenu-heading-color']   = $theme_options['primary-header-megamenu-heading-color'];
-	$theme_options['header-menu1-header-megamenu-heading-h-color'] = $theme_options['primary-header-megamenu-heading-h-color'];
+		// Primary Menu - Mega Menu.
+		$theme_options['header-menu1-header-megamenu-heading-color']   = $theme_options['primary-header-megamenu-heading-color'];
+		$theme_options['header-menu1-header-megamenu-heading-h-color'] = $theme_options['primary-header-megamenu-heading-h-color'];
 
-	$theme_options['header-menu1-megamenu-heading-font-size']      = $theme_options['primary-header-megamenu-heading-font-size'];
-	$theme_options['header-menu1-megamenu-heading-font-weight']    = $theme_options['primary-header-megamenu-heading-font-weight'];
-	$theme_options['header-menu1-megamenu-heading-line-height']    = $theme_options['primary-header-megamenu-heading-line-height'];
-	$theme_options['header-menu1-megamenu-heading-font-family']    = $theme_options['primary-header-megamenu-heading-font-family'];
-	$theme_options['header-menu1-megamenu-heading-text-transform'] = $theme_options['primary-header-megamenu-heading-text-transform'];
+		$theme_options['header-menu1-megamenu-heading-font-size']      = $theme_options['primary-header-megamenu-heading-font-size'];
+		$theme_options['header-menu1-megamenu-heading-font-weight']    = $theme_options['primary-header-megamenu-heading-font-weight'];
+		$theme_options['header-menu1-megamenu-heading-line-height']    = $theme_options['primary-header-megamenu-heading-line-height'];
+		$theme_options['header-menu1-megamenu-heading-font-family']    = $theme_options['primary-header-megamenu-heading-font-family'];
+		$theme_options['header-menu1-megamenu-heading-text-transform'] = $theme_options['primary-header-megamenu-heading-text-transform'];
 
-	$theme_options['header-menu1-megamenu-heading-space'] = $theme_options['primary-header-megamenu-heading-space'];
+		$theme_options['header-menu1-megamenu-heading-space'] = $theme_options['primary-header-megamenu-heading-space'];
+	}
 
 	/**
 	 * Primary Menu - Mobile.
@@ -990,6 +1000,15 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
  * @return array
  */
 function astra_above_header_builder_migration( $theme_options, $used_elements, $widget_options ) {
+
+	if ( defined( 'ASTRA_EXT_VER' ) ) {
+		return array(
+			'theme_options'  => $theme_options,
+			'used_elements'  => $used_elements,
+			'widget_options' => $widget_options,
+		);
+	}
+
 	/**
 	 * Above Header.
 	 */
@@ -1263,6 +1282,15 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
  * @return array
  */
 function astra_below_header_builder_migration( $theme_options, $used_elements, $widget_options ) {
+
+	if ( defined( 'ASTRA_EXT_VER' ) ) {
+		return array(
+			'theme_options'  => $theme_options,
+			'used_elements'  => $used_elements,
+			'widget_options' => $widget_options,
+		);
+	}
+
 	/**
 	 * Below Header
 	 */
@@ -1778,6 +1806,14 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
  * @return array
  */
 function astra_footer_widgets_migration( $theme_options, $used_elements, $widget_options ) {
+
+	if ( defined( 'ASTRA_EXT_VER' ) ) {
+		return array(
+			'theme_options'  => $theme_options,
+			'used_elements'  => $used_elements,
+			'widget_options' => $widget_options,
+		);
+	}
 
 	$footer_widget_layouts = $theme_options['footer-adv'];
 	$column                = 2;
