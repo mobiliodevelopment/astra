@@ -282,8 +282,8 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 
 			// Option Group: Trigger Typography.
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-label-typography]',
-				'default'   => astra_get_option( 'mobile-header-label-typography' ),
+				'name'      => ASTRA_THEME_SETTINGS . '[typography-' . $_section . ']',
+				'default'   => astra_get_option( 'typography-' . $_section ),
 				'type'      => 'control',
 				'control'   => 'ast-settings-group',
 				'title'     => __( 'Typography', 'astra' ),
@@ -302,9 +302,9 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 
 			// Option: Trigger Font Size.
 			array(
-				'name'        => 'mobile-header-label-font-size',
-				'default'     => astra_get_option( 'mobile-header-label-font-size' ),
-				'parent'      => ASTRA_THEME_SETTINGS . '[mobile-header-label-typography]',
+				'name'        => 'font-size-' . $_section,
+				'default'     => astra_get_option( 'font-size-' . $_section ),
+				'parent'      => ASTRA_THEME_SETTINGS . '[typography-' . $_section . ']',
 				'section'     => $_section,
 				'type'        => 'sub-control',
 				'priority'    => 23,

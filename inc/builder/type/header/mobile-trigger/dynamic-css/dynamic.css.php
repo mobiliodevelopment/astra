@@ -43,7 +43,7 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 	$trigger_border_width   = astra_get_option( 'mobile-header-toggle-btn-border-size' );
 	$trigger_border_color   = astra_get_option( 'mobile-header-toggle-border-color', $trigger_bg );
 	$trigger_border_radius  = astra_get_option( 'mobile-header-toggle-border-radius' );
-	$font_size              = astra_get_option( 'mobile-header-label-font-size' );
+	$font_size              = astra_get_option( 'font-size-' . $_section );
 	$style                  = astra_get_option( 'mobile-header-toggle-btn-style' );
 	$default                = '#ffffff';
 

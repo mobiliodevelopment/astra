@@ -119,7 +119,7 @@
 
 	// Trigger Typography.
 	astra_css(
-		'astra-settings[mobile-header-label-font-size]',
+		'astra-settings[font-size-section-header-mobile-trigger]',
 		'font-size',
 		'[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-wrap .mobile-menu',
 		'px'
