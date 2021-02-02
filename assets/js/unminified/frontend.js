@@ -831,7 +831,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	function swap_header_on_breakpoint( swap ) {
 
-		if ( astra.isSingleHeader ) {
+		if ( 1 != astra.isSingleHeader ) {
 			return;
 		}
 
