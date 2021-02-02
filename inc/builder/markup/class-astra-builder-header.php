@@ -241,8 +241,9 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		public function render_single_header( $row, $column ) {
 			
 			if ( 'primary' === $row && 'right' === $column ) {
-				var_dump($row);
-				var_dump($column);
+				// var_dump($row);
+				// var_dump($column);
+				Astra_Builder_UI_Controller::render_mobile_trigger();
 			}
 
 			// Astra_Builder_Helper::render_builder_markup( $row, $column, 'desktop', 'header' );
