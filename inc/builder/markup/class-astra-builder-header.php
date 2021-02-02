@@ -64,6 +64,8 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 				add_action( 'astra_render_header_column', array( $this, 'render_column' ), 10, 2 );
 
+				add_action( 'astra_render_header_column', array( $this, 'render_single_header' ), 10, 2 );
+
 				// Mobile Builder.
 				add_action( 'astra_mobile_header', array( $this, 'mobile_header' ) );
 
@@ -228,6 +230,22 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		public function render_column( $row, $column ) {
 
 			Astra_Builder_Helper::render_builder_markup( $row, $column, 'desktop', 'header' );
+		}
+
+		/**
+		 * Call component header UI.
+		 *
+		 * @param string $row row.
+		 * @param string $column column.
+		 */
+		public function render_single_header( $row, $column ) {
+			
+			if ( 'primary' === $row && 'right' === $column ) {
+				var_dump($row);
+				var_dump($column);
+			}
+
+			// Astra_Builder_Helper::render_builder_markup( $row, $column, 'desktop', 'header' );
 		}
 
 		/**
