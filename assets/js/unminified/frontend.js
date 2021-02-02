@@ -831,6 +831,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	function swap_header_on_breakpoint( swap ) {
 
+		if ( astra.isSingleHeader ) {
+			return;
+		}
+
 		main_header_masthead = document.getElementById('masthead');
 
 		if (undefined === main_header_masthead || null === main_header_masthead) {

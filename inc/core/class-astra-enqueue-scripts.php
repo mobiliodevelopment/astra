@@ -307,6 +307,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$astra_localize = array(
 				'break_point' => astra_header_break_point(),    // Header Break Point.
 				'isRtl'       => is_rtl(),
+				'isSingleHeader' => Astra_Builder_Helper::is_single_header()
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );

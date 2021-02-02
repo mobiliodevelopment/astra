@@ -1087,6 +1087,35 @@ final class Astra_Builder_Helper {
 
 		return $is_loaded || is_customize_preview();
 	}
+
+	public static function is_single_header() {
+
+		$header_mobile_items = astra_get_option( 'header-mobile-items' );
+
+		$default_header_mobile_items = array(
+			'popup'   => array( 'popup_content' => array() ),
+			'above'   =>
+				array(
+					'above_left'   => array(),
+					'above_center' => array(),
+					'above_right'  => array(),
+				),
+			'primary' =>
+				array(
+					'primary_left'   => array(),
+					'primary_center' => array(),
+					'primary_right'  => array(),
+				),
+			'below'   =>
+				array(
+					'below_left'   => array(),
+					'below_center' => array(),
+					'below_right'  => array(),
+				),
+		);
+
+		return ( array_diff( $header_mobile_items, $default_header_mobile_items ) == array_diff( $default_header_mobile_items, $header_mobile_items ) );
+	}
 }
 
 /**
